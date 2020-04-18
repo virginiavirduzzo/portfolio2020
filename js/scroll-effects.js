@@ -9,7 +9,7 @@ $(function () { // wait for document ready
         .to(".v-Section_BgYellow", 1, {x: "90%"})	// move in to first panel
         .to(".v-Section_Intro", .5, {x: "60%"})
         .to(".v-Section_About", .5, {x: "-100%"})
-        .to("", .5, {opacity: "1"} )
+        .to(".v-About_Copy", 1, {opacity: "1", x:"20%"} )
     // create scene to pin and link animation
     new ScrollMagic.Scene({
             triggerElement: "body",

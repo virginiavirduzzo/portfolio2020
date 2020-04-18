@@ -131,6 +131,17 @@ section {
     height: calc(100vh - 125px);
 }
 
+.v-Section_BgYellow {
+    transition: width 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #e0a335;
+    z-index: 1;
+}
+
 .v-Section_Intro {
     width: 50%;
     display: flex;
@@ -144,17 +155,15 @@ section {
 	width: 50%; /* relative to parent -> 50% of 100% = 100% of window width */
     height: 100%;
     background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
 }
 
-.v-Section_BgYellow {
-    transition: width 2s;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background-color: #e0a335;
-    z-index: 1;
+.v-About_Copy {
+    width: 400px;
+    max-width: 100%;
+    font-weight: 600;
+    opacity: 0;
 }
 
 .v-Scroll {
@@ -185,6 +194,14 @@ section {
     -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
     transform: rotate(-90deg);
     transform-origin : center center;
+}
+
+.text-color-yellow {
+    color: #e0a335;
+}
+
+.text-color-black {
+    color: #333333;
 }
 
 /* Animation Keys */
