@@ -20,21 +20,16 @@ $(function () { // wait for document ready
         .setTween(wipeAnimation)
         .addIndicators() // add indicators (requires plugin)
         .addTo(controller);
-
-    // // init controller
-    // var controller1 = new ScrollMagic.Controller();
-
-    // // build scene
-    // var animateElem = document.querySelector(".v-Section_BgYellow");
-    // var scene = new ScrollMagic.Scene({triggerElement: ".v-Scroll", duration: 200})
-    //                 .on("enter", function () {
-    //                     // trigger animation by changing inline style.
-    //                     animateElem.style.width = "100%";
-    //                 })
-    //                 .on("leave", function () {
-    //                     // reset style
-    //                     animateElem.style.width = "50%";
-    //                 })
-    //                 .addIndicators({name: "2 - change inline style"}) // add indicators (requires plugin)
-    //                 .addTo(controller1);
+    
+    // open menú
+    var openMenu = gsap.to(".v-Nav_Wrapper", {
+        duration: 4, 
+        x: 750, 
+        rotation: 360, 
+        ease: "none", 
+        paused: true
+        });
+        
+        // click handlers for controlling the tween instance...
+        document.querySelector(".v-Nav_Toggle").onclick = () => openMenu.play();
 });
