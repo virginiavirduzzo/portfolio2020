@@ -27,11 +27,13 @@ body {
 }
 
 .v-Nav_Toggle {
+    cursor: pointer;
     position: fixed;
     top: 45vh;
     left: 25px;
     display: flex;
     align-items: center;
+    z-index: 1;
 }
 
 .v-Nav_Icon {
@@ -40,6 +42,8 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
 }
 
 .v-Nav_Icon > *:not(:last-of-type) {
@@ -53,7 +57,10 @@ body {
     border-radius: 10px;
 }
 
-.v-Nav_IconLine:nth-child(1),
+.v-Nav_IconLine:nth-child(1){
+    width: 90%;
+}
+
 .v-Nav_IconLine:nth-child(2) {
     width: 100%;
 }
@@ -70,6 +77,30 @@ body {
     text-align: center;
 }
 
+.v-Nav_Text > * {
+    display: inline-block;
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+
+/* Nav toogle hover effect */
+.v-Nav_Toggle:hover .v-Nav_Text span:nth-child(1) {
+    transform: translateY(10px);
+}
+.v-Nav_Toggle:hover .v-Nav_Text span:nth-child(2) {
+    transform: translateY(20px);
+}
+.v-Nav_Toggle:hover .v-Nav_Text span:nth-child(3) {
+    transform: translateY(10px);
+}
+.v-Nav_Toggle:hover .v-Nav_Text span:nth-child(4) {
+    transform: translateY(20px);
+}
+
+.v-Nav_Toggle:hover .v-Nav_Icon {
+    width: 40px
+}
+
 .v-Heading_Main {
     width: 100%;
     max-width: 650px;
@@ -78,6 +109,7 @@ body {
     line-height: 1.2em;
     font-weight: 600;
     text-transform: uppercase;
+    z-index: 1;
 }
 
 section {
@@ -85,18 +117,53 @@ section {
     min-height: calc(100vh - 125px);
 }
 
+.v-Section_PinContainer {
+    width: 100%;
+    height: calc(100vh - 125px);
+    overflow: hidden;
+    -webkit-perspective: 1000;
+            perspective: 1000;
+}
+
+.v-Section_Container {
+    display: flex;
+    width: 200%; /* to contain 2 panels, each with 100% of window width */
+    height: calc(100vh - 125px);
+}
+
 .v-Section_Intro {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+}
+
+.v-Section_About {
+	width: 50%; /* relative to parent -> 50% of 100% = 100% of window width */
+    height: 100%;
+    background-color: #f2f2f2;
+}
+
+.v-Section_BgYellow {
+    transition: width 2s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #e0a335;
+    z-index: 1;
 }
 
 .v-Scroll {
     position: absolute;
-    bottom: 10px;
     width: 20px;
     height: 50px;
+    bottom: 10px;
+    left: calc(50% - 20px);
+    z-index: 1;
 }
 
 .v-Scroll_Text { 
