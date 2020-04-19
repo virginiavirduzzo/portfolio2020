@@ -286,12 +286,82 @@ section {
     font-size: 2em;
 }
 
-.v-Work_Image {
+.v-Work_ImageWrapper {
     width: 450px;
     height: 300px;
     max-width: 100%;
     background-color: #f2f2f2;
     z-index: 1;
+    overflow: hidden;
+}
+
+.v-Work_Image {
+    width: 100%;
+    height: auto;
+    -webkit-transition: transform 2s ease-in-out;
+    transition: transform 2s ease-in-out;
+}
+
+.v-Work_TitleWrapper:hover ~ .v-Work_ImageWrapper .v-Work_Image,
+.v-Work_Image:hover {
+    transform: translateY(calc((100% - 300px)* -1));
+}
+
+footer {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.v-Footer_Cta {
+    display: flex;
+    cursor: pointer;
+}
+
+.v-Footer_Cta h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.v-Footer_Arrow {
+    margin-left: 10px;
+    width: 1rem;
+    -webkit-transition: padding .5s ease;
+    transition: padding .5s ease;
+}
+
+.v-Footer_Cta:hover .v-Footer_Arrow {
+    padding-top: 20px;
+}
+
+.v-Footer_Link {
+    display: block;
+    position: relative;
+    width: fit-content;
+    color: #333333;
+    text-decoration: none;
+}
+
+.v-Footer_Link::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 5px;
+    left: 0;
+    bottom: 7px;
+    background-color: #e0a335;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s;
+}
+  
+.v-Footer_Link:hover::before {
+    width: 100%;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s;
 }
 
 /* Utilities */
@@ -311,6 +381,7 @@ section {
 }
 
 /* Animation Keys */
+
 @-webkit-keyframes bounce {
     0% {
         -webkit-transform: translateY(0);
