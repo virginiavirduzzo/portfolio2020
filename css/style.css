@@ -206,6 +206,7 @@ section {
 .v-Work {
     position: relative;
     width: 100%;
+    min-height: 300px;
     display: flex;
     align-items: center;
     padding: 30px 0;
@@ -293,6 +294,8 @@ section {
     background-color: #f2f2f2;
     z-index: 1;
     overflow: hidden;
+    transition: height 1s ease,
+                opacity .2s ease;
 }
 
 .v-Work_Image {
