@@ -21,7 +21,7 @@ $(function () { // wait for document ready
         .addIndicators() // add indicators (requires plugin)
         .addTo(controller);
     
-    // open menú
+    // open menu
     var openMenu = gsap.to(".v-Nav_Wrapper", {
         duration: 4, 
         x: 750, 
