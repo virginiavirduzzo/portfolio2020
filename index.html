@@ -50,9 +50,9 @@
                 </div>
                 <div class="v-Nav_Content">
                     <div class="v-Nav_List">
-                        <a onclick="scrollToSection('#section-intro')" class="v-Nav_Item">Home</a>
-                        <a onclick="scrollToSection('#section-about')" class="v-Nav_Item">Presentation</a>
-                        <a onclick="scrollToSection('#section-works')" class="v-Nav_Item">Works</a>
+                        <a href="#section-intro" class="v-Nav_Item">Home</a>
+                        <a href="#section-about" class="v-Nav_Item">Presentation</a>
+                        <a href="#section-works" class="v-Nav_Item">Works</a>
                     </div>
                 </div>
             </nav>
@@ -199,22 +199,6 @@
                 <a class="v-Footer_Link" href="tel:0034692310024" title="tel to Virginia Virduzzo">+34 692 31 00 24</a>
             </div>
         </footer>
-
-        <script>
-             function scrollToSection(section) {
-                $('.v-Nav').removeClass("v-Nav_Open");
-                $('.v-Nav_Toggle').removeClass("v-Nav_ToggleClose");  
-                $('.v-Nav_List').removeClass("v-Nav_ListShown")
-
-                var offset = "2vh"; //Offset of %
-            
-                $('html, body').animate({
-                    scrollTop: $(section).offset().top + offset
-                }, 1000);
-
-                console.log($(section).offset().top + offset)
-            }
-        </script>
     </body>
 
 </html>

@@ -33,7 +33,6 @@ $(function () { // wait for document ready
                 .addTo(controller); 
     
     // open menu
-
     function openMenu() {
         $('.v-Nav').toggleClass("v-Nav_Open");
         $(this).toggleClass("v-Nav_ToggleClose");  
@@ -41,4 +40,16 @@ $(function () { // wait for document ready
         
     }
     document.querySelector(".v-Nav_Toggle").onclick = () => openMenu();
+    
+    // scroll menu
+    $(document).on('click', 'a[href^="#"]', function (e) {
+        e.preventDefault();
+        $('.v-Nav').removeClass("v-Nav_Open");
+        $('.v-Nav_Toggle').removeClass("v-Nav_ToggleClose");  
+        $('.v-Nav_List').removeClass("v-Nav_ListShown")
+
+        $('html, body').stop().animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 1000, 'linear');
+    });
 });
