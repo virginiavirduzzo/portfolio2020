@@ -32,11 +32,13 @@ body {
 .v-Nav_Toggle {
     cursor: pointer;
     position: fixed;
+    min-width: 50px;
+    min-height: 50px;
     top: 45vh;
     left: 25px;
     display: flex;
     align-items: center;
-    z-index: 2;
+    z-index: 4;
 }
 
 .v-Nav_Icon {
@@ -104,6 +106,109 @@ body {
     width: 40px
 }
 
+.v-Nav_Content {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: white;
+    z-index: 3;
+    -webkit-transition: width .5s ease-in-out;
+    transition: width .5s ease-in-out;
+}
+
+.v-Nav:not(.v-Nav_Open) .v-Nav_Toggle:hover ~ .v-Nav_Content {
+    width: 100px;
+}
+
+/* Nav open effect */
+.v-Nav_Open .v-Nav_Text {
+    display: none;
+}
+
+.v-Nav_Open .v-Nav_Content {
+    width: calc(100% - 200px);
+    height: calc(100% - 200px);
+    padding: 100px;
+}
+
+.v-Nav_Open .v-Nav_Content:after {
+    content: '';
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    background-color: #e0a335;
+}
+
+.v-Nav_Open .v-Nav_IconLine {
+    margin-bottom: 0;
+    width: 30px;
+    transform-origin: center center;
+}
+
+.v-Nav_Open .v-Nav_IconLine:nth-child(1){
+    transform: rotate(45deg);
+}
+
+.v-Nav_Open .v-Nav_IconLine:nth-child(2) {
+    display: none;
+}
+
+.v-Nav_Open .v-Nav_IconLine:nth-child(3) {
+    transform: rotate(-45deg);
+    margin-top: -2px;
+}
+
+.v-Nav_List {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-20px);
+    font-size: 8vw;
+    font-weight: 600px;
+    -webkit-transition: opacity .5s ease;
+    transition: opacity .5s ease;
+}
+
+.v-Nav_ListShown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    -webkit-transition: transform .5s ease;
+    transition: transform .5s ease;
+}
+
+.v-Nav_Item {
+    display: block;
+    color: #333333;
+    position: relative;
+    width: fit-content;
+    text-decoration: none;
+}
+
+.v-Nav_Item::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 2vw;
+    left: 0;
+    bottom: 3vw;
+    background-color: #e0a335;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s;
+}
+  
+.v-Nav_Item:hover::before {
+    width: 100%;
+    -webkit-transition: width 1s ease-in-out;
+    transition: width 1s;
+}
+
+
 .v-Heading_Main {
     width: 100%;
     max-width: 650px;
@@ -163,8 +268,9 @@ section {
 }
 
 .v-About_Copy {
-    width: 400px;
+    width: 500px;
     max-width: 100%;
+    font-size: 20px;
     font-weight: 600;
     opacity: 0;
 }
@@ -192,7 +298,9 @@ section {
 }
 
 .v-Section_Works {
-    padding: 10vh 50px;
+    margin: 50px 0;
+    padding: 50px;
+    background-color: #f2f2f2;
 }
 
 .v-Works_Title {
@@ -219,11 +327,11 @@ section {
 .v-Work_TitleWrapper {
     position: absolute;
     width: 250px;
+    height: 100%;
     right: 0;
     left: 0;
     margin: auto;
     z-index: 2;
-    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -232,7 +340,7 @@ section {
 .v-Work_TitleWrapper::before,
 .v-Work_TitleWrapper::after {
     content: '';
-    width: 1px;
+    width: 2px;
     height: 110px;
     background-color: #e0a335;
     position: absolute;
@@ -256,7 +364,7 @@ section {
 
 .v-Work-right .v-Work_TitleWrapper::before,
 .v-Work-right .v-Work_TitleWrapper::after {
-    left: 20px;
+    left: 19px;
 }
 
 .v-Work-left .v-Work_TitleWrapper::before,
@@ -301,8 +409,8 @@ section {
 .v-Work_Image {
     width: 100%;
     height: auto;
-    -webkit-transition: transform 2s ease-in-out;
-    transition: transform 2s ease-in-out;
+    -webkit-transition: transform 4s ease-in-out;
+    transition: transform 4s ease-in-out;
 }
 
 .v-Work_TitleWrapper:hover ~ .v-Work_ImageWrapper .v-Work_Image,

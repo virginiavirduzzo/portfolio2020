@@ -23,7 +23,7 @@
         <script src="js/scrollmagic/uncompressed/ScrollMagic.js"></script>
         <script src="js/scrollmagic/uncompressed/plugins/animation.gsap.js"></script> 
         <script src="js/scrollmagic/uncompressed/plugins/debug.addIndicators.js"></script>
-
+        <script src="js/scroll-effects.js"></script>
     </head>
 
     <body>
@@ -34,7 +34,7 @@
                 </div> 
                 <img class="v-Logo_Image" src="images/logo.svg" alt="Logotipo virginia virduzzo" width="14" height="14"/>  
             </div>
-            <nav>
+            <nav class="v-Nav">
                 <div class="v-Nav_Toggle">
                     <div class="v-Nav_Icon">
                         <span class="v-Nav_IconLine"></span>
@@ -48,6 +48,13 @@
                         <span>U</span>
                     </div>
                 </div>
+                <div class="v-Nav_Content">
+                    <div class="v-Nav_List">
+                        <a onclick="scrollToSection('#section-intro')" class="v-Nav_Item">Home</a>
+                        <a onclick="scrollToSection('#section-about')" class="v-Nav_Item">Presentation</a>
+                        <a onclick="scrollToSection('#section-works')" class="v-Nav_Item">Works</a>
+                    </div>
+                </div>
             </nav>
         </header>
         <!-- start sections swip -->
@@ -55,7 +62,7 @@
             <div class="v-Section_Container">
                 <div class="v-Section_BgYellow"></div>
                 <!-- start section intro -->
-                <section class="v-Section_Intro">
+                <section class="v-Section_Intro" id="section-intro">
                     <h1 class="v-Heading_Main">
                         Hello World
                         <img src="images/logo.svg" alt="Logotipo virginia virduzzo" width="40" height="40" />  
@@ -63,7 +70,7 @@
                 </section>
                 <!-- end section intro -->
                 <!-- start section about -->
-                <section class="v-Section_About">
+                <section class="v-Section_About" id="section-about">
                     <div class="v-About_Copy">
                         <p class="text-color-yellow">I’m Virginia Virduzzo.</p>
                         <p class="text-color-black">
@@ -86,7 +93,7 @@
         </div>
         <!-- end sections swip -->
         <!-- start section works -->
-        <section class="v-Section_Works">
+        <section class="v-Section_Works" id="section-works">
             <h2 class="v-Works_Title">
                 Last projects
             </h2>
@@ -192,7 +199,22 @@
                 <a class="v-Footer_Link" href="tel:0034692310024" title="tel to Virginia Virduzzo">+34 692 31 00 24</a>
             </div>
         </footer>
-        <script src="js/scroll-effects.js"></script>
+
+        <script>
+             function scrollToSection(section) {
+                $('.v-Nav').removeClass("v-Nav_Open");
+                $('.v-Nav_Toggle').removeClass("v-Nav_ToggleClose");  
+                $('.v-Nav_List').removeClass("v-Nav_ListShown")
+
+                var offset = "2vh"; //Offset of %
+            
+                $('html, body').animate({
+                    scrollTop: $(section).offset().top + offset
+                }, 1000);
+
+                console.log($(section).offset().top + offset)
+            }
+        </script>
     </body>
 
 </html>
